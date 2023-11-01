@@ -1,11 +1,9 @@
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from 'react-router-dom'
 import './styles/global.css'
-import Home from "./routes";
-import Login from "./routes/login";
-
+import Home from './routes'
+import Login from './routes/login'
 
 function App() {
-
     return (
         <>
             <Routes>
