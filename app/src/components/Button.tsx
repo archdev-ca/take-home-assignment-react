@@ -20,7 +20,7 @@ const Button = ({ variant, fullWidth, children }: Props) => {
     return (
         <>
             <button
-                className={`${classNames} rounded-sm text-primary-contrast leading-6 py-2 transition-all duration-300 ease-in-out`}
+                className={`${classNames} rounded-sm text-primary-contrast leading-6 py-2 px-6 transition-all duration-300 ease-in-out`}
             >
                 {children}
             </button>
