@@ -3,11 +3,12 @@ import React from 'react'
 type Props = {
     children: React.ReactNode
     htmlFor?: string
+    classNames?: string
 }
 
-function Label({ htmlFor, children }: Props) {
+function Label({ classNames, htmlFor, children }: Props) {
     return (
-        <label htmlFor={htmlFor} className="font-bold mb-4">
+        <label htmlFor={htmlFor} className={`font-bold ${classNames}`}>
             {children}
         </label>
     )

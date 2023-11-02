@@ -15,6 +15,12 @@ export default {
                     lighter: '#c296e3',
                     contrast: '#fff',
                 },
+                black: {
+                    muted: '#858484',
+                },
+            },
+            boxShadow: {
+                card: '0 0 6px 0 rgba(0,0,0, .20)',
             },
         },
     },
