@@ -5,14 +5,11 @@ type Props = {
     setValue?: (value: string) => void
     name?: string
     type?: HTMLInputTypeAttribute
-    onChange?: (value: string) => void
 }
 
-function TextField({ value, setValue, name, onChange, type = 'text' }: Props) {
+function TextField({ value, setValue, name, type = 'text' }: Props) {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target.value)
         setValue && setValue(e.target.value)
-        onChange && onChange(e.target.value)
     }
 
     return (
