@@ -2,10 +2,16 @@ import Button from '../components/Button'
 import Card from '../components/Card'
 import Label from '../components/Label'
 import TextField from '../components/TextField'
+import useLogin from '../hooks/useLogin'
 
 function Login() {
-    const handleSubmit = () => {
-        console.log(e)
+    const { email, setEmail, password, setPassword } = useLogin()
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log({
+            email,
+            password,
+        })
     }
     return (
         <div className="pt-16 mx-auto" style={{ width: '466px' }}>
@@ -23,12 +29,12 @@ function Login() {
                 <form method="post" onSubmit={handleSubmit}>
                     <div className="mb-6 flex flex-col w-full items-start">
                         <Label classNames="mb-4">Email</Label>
-                        <TextField type="email" name="email" />
+                        <TextField type="email" name="email" value={email} setValue={setEmail} />
                     </div>
 
                     <div className="mb-6 flex flex-col w-full items-start">
                         <Label classNames="mb-4">Password</Label>
-                        <TextField type="password" name="email" />
+                        <TextField type="password" name="password" value={password} setValue={setPassword} />
                     </div>
 
                     <Button fullWidth variant="primary">
