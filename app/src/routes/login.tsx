@@ -4,25 +4,37 @@ import Label from '../components/Label'
 import TextField from '../components/TextField'
 
 function Login() {
+    const handleSubmit = () => {
+        console.log(e)
+    }
     return (
-        <div className="flex flex-col pt-16" style={{ width: '466px', margin: '0 auto', textAlign: 'center' }}>
+        <div className="pt-16 mx-auto" style={{ width: '466px' }}>
             <Card>
-                <img src="/logo.png" srcSet="logo@2x.png 2x" alt="" width={143} height={24} className="mb-10" />
+                <img
+                    src="/images/logo.png"
+                    srcSet="images/logo@2x.png 2x"
+                    alt=""
+                    width={143}
+                    height={24}
+                    className="mb-10"
+                />
                 <h2 className="mb-8 text-3xl leading-10 font-semibold">Sign in</h2>
 
-                <div className="mb-6 flex flex-col w-full items-start">
-                    <Label classNames="mb-4">Email</Label>
-                    <TextField type="email" name="email" />
-                </div>
+                <form method="post" onSubmit={handleSubmit}>
+                    <div className="mb-6 flex flex-col w-full items-start">
+                        <Label classNames="mb-4">Email</Label>
+                        <TextField type="email" name="email" />
+                    </div>
 
-                <div className="mb-6 flex flex-col w-full items-start">
-                    <Label classNames="mb-4">Password</Label>
-                    <TextField type="password" name="email" />
-                </div>
+                    <div className="mb-6 flex flex-col w-full items-start">
+                        <Label classNames="mb-4">Password</Label>
+                        <TextField type="password" name="email" />
+                    </div>
 
-                <Button fullWidth variant="primary">
-                    Sign in
-                </Button>
+                    <Button fullWidth variant="primary">
+                        Sign in
+                    </Button>
+                </form>
 
                 <p className="text-center w-full mt-8">
                     <a className="font-bold" href="#">
