@@ -2,19 +2,26 @@ import { HTMLInputTypeAttribute } from 'react'
 
 type Props = {
     value?: number | string
+    setValue?: (value: string) => void
     name?: string
     type?: HTMLInputTypeAttribute
-    onChange?: () => void
+    onChange?: (value: string) => void
 }
 
-function TextField({ value, name, onChange, type = 'text' }: Props) {
+function TextField({ value, setValue, name, onChange, type = 'text' }: Props) {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(e.target.value)
+        setValue && setValue(e.target.value)
+        onChange && onChange(e.target.value)
+    }
+
     return (
         <input
             className=" transition-all duration-300 rounded-sm shadow-border block w-full py-2 px-4 text-sm leading-6 outline-none focus:outline-4 outline-offset-0 focus:outline-primary-lighter focus:shadow-primary-lighter"
             type={type}
-            value={value}
+            defaultValue={value}
             name={name}
-            onChange={onChange}
+            onChange={handleChange}
         />
     )
 }
