@@ -3,18 +3,23 @@ import { useContext, useState } from 'react'
 import { LOGIN } from '../gql/mutations/login'
 import { LoginResponseInterface } from '../interfaces/common'
 import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 function useLogin() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const { setAccessToken, setRefreshToken } = useContext(AppContext)
+    const navigate = useNavigate()
 
     const onLoginComplete = (data: LoginResponseInterface) => {
         const {
             authenticate: { accessToken, refreshToken },
         } = data
-        setAccessToken(accessToken)
-        setRefreshToken(refreshToken)
+        if (accessToken && refreshToken) {
+            setAccessToken(accessToken)
+            setRefreshToken(refreshToken)
+            navigate('/products')
+        }
     }
 
     const [login, { data, loading, error }] = useMutation(LOGIN, { onCompleted: onLoginComplete })
