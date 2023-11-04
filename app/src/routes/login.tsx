@@ -1,24 +1,13 @@
-import { useMutation } from '@apollo/client'
+import Alert from '../components/Alert'
 import Button from '../components/Button'
 import Card from '../components/Card'
 import Label from '../components/Label'
 import TextField from '../components/TextField'
 import useLogin from '../hooks/useLogin'
-import { LOGIN } from '../gql/mutations/login'
 
 function Login() {
-    const { email, setEmail, password, setPassword } = useLogin()
-    const [login, { data, loading, error }] = useMutation(LOGIN)
+    const { email, setEmail, password, setPassword, handleSubmit, data, loading, error } = useLogin()
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        login({
-            variables: {
-                email,
-                password,
-            },
-        })
-    }
     return (
         <div className="pt-16 mx-auto" style={{ width: '466px' }}>
             <Card>
