@@ -21,6 +21,12 @@ function Login() {
                 />
                 <h2 className="mb-8 text-3xl leading-10 font-semibold">Sign in</h2>
 
+                {error ? (
+                    <Alert variant="error" classNames="mb-6">
+                        There was a problem signing you in. Please try again.
+                    </Alert>
+                ) : null}
+
                 <form method="post" onSubmit={handleSubmit}>
                     <div className="mb-6 flex flex-col w-full items-start">
                         <Label classNames="mb-4">Email</Label>
@@ -32,7 +38,7 @@ function Login() {
                         <TextField type="password" name="password" value={password} setValue={setPassword} />
                     </div>
 
-                    <Button fullWidth variant="primary">
+                    <Button disabled={loading} fullWidth variant="primary">
                         Sign in
                     </Button>
                 </form>
