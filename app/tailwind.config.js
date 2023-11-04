@@ -14,6 +14,7 @@ export default {
                     light: '#a85fde',
                     lighter: '#c9a8e3',
                     contrast: '#fff',
+                    disabled: '#c9a8e3',
                 },
                 black: {
                     muted: '#858484',
