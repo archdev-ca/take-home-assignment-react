@@ -6,7 +6,7 @@ import TextField from '../components/TextField'
 import useLogin from '../hooks/useLogin'
 
 function Login() {
-    const { email, setEmail, password, setPassword, handleSubmit, data, loading, error } = useLogin()
+    const { email, setEmail, password, setPassword, handleSubmit, loading, error } = useLogin()
 
     return (
         <div className="pt-16 mx-auto" style={{ width: '466px' }}>
