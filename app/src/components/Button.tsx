@@ -7,36 +7,30 @@ interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     variant: 'contained' | 'outlined'
 }
 
-const colorClassMap = {
-    primary:
-        ' bg-primary-main hover:bg-primary-dark active:bg-primary-darker outline outline-offset-0 outline-0 outline-primary-lighter focus:outline-4',
-    secondary: '',
-}
-
 const disabledColorClassMap = {
     primary: ' disabled:bg-primary-disabled',
     secondary: '',
 }
 
-const variantClassMap = {}
-
 const classMap = {
     contained: {
-        primary: '',
+        primary:
+            ' bg-primary-main hover:bg-primary-dark active:bg-primary-darker outline outline-offset-0 outline-0 outline-primary-lighter focus:outline-4',
         secondary: '',
     },
     outlined: {
-        primary: '',
+        primary:
+            ' ring ring-2 ring-inset ring-primary-main hover:ring-primary-main hover:bg-primary-main active:ring-primary-main hover:text-white active:text-white text-primary-main outline outline-offset-0 outline-0 outline-primary-lighter focus:outline-4',
         secondary: '',
     },
 }
 
-const Button = ({ color: variant, fullWidth, children, ...props }: Props) => {
+const Button = ({ color, variant = 'contained', fullWidth, children, ...props }: Props) => {
     let classNames = ''
     let bgClasses = ''
-    bgClasses += colorClassMap[variant] ? colorClassMap[variant] : 'bg-primary-main'
+    bgClasses += classMap[variant][color] ? classMap[variant][color] : 'bg-primary-main'
     if (props.disabled) {
-        bgClasses += disabledColorClassMap[variant] ? disabledColorClassMap[variant] : ''
+        bgClasses += disabledColorClassMap[color] ? disabledColorClassMap[color] : ''
     }
     classNames += fullWidth ? ' w-full block' : ''
     return (
