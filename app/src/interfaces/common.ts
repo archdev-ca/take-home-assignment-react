@@ -13,3 +13,11 @@ export interface AppContextInterface {
     setAccessToken: Dispatch<SetStateAction<string>>
     setRefreshToken: Dispatch<SetStateAction<string>>
 }
+
+export interface ProductInterface {
+    currency: string
+    description: string
+    id: string
+    price: number
+    title: string
+}

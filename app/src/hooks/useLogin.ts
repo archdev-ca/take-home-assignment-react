@@ -18,6 +18,7 @@ function useLogin() {
         if (accessToken && refreshToken) {
             setAccessToken(accessToken)
             setRefreshToken(refreshToken)
+            sessionStorage.setItem('at', accessToken)
             sessionStorage.setItem('rt', refreshToken)
             navigate('/products')
         }

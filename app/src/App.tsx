@@ -4,6 +4,7 @@ import Home from './routes'
 import Login from './routes/login'
 import Products from './routes/products'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import useAuth from './hooks/useAuth'
 
 const client = new ApolloClient({
     uri: 'http://localhost:8080/graphql',
@@ -11,6 +12,7 @@ const client = new ApolloClient({
 })
 
 function App() {
+    useAuth()
     return (
         <>
             <ApolloProvider client={client}>
