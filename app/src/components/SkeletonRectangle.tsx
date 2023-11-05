@@ -5,13 +5,13 @@ type Props = {
 
 const SkeletonRectangle = ({ height, width }: Props) => {
     return (
-        <div
+        <span
             style={{
                 width: width ? width : `100%`,
                 height: height ? height : '20px',
             }}
-            className={`rounded-md animate-pulse bg-slate-200`}
-        ></div>
+            className={`block rounded-md animate-pulse bg-slate-200`}
+        ></span>
     )
 }
 

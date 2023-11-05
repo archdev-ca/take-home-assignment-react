@@ -17,17 +17,17 @@ function ProductCard({ product, loading }: Props) {
             <CardContent>
                 <h3 className="font-bold text-lg mb-4">
                     {loading ? <SkeletonRectangle height={28} width="30%" /> : null}
-                    {product && product.title ? product.title : ''}
+                    {!loading && product && product.title ? product.title : ''}
                 </h3>
                 <p>
                     {loading ? <SkeletonRectangle height={21} /> : null}
-                    {product && product.description ? product.description : ''}
+                    {!loading && product && product.description ? product.description : ''}
                 </p>
             </CardContent>
             <CardFooter>
                 <div className="flex font-bold items-center place-content-between">
                     {loading ? <SkeletonRectangle height={28} width={120} /> : null}
-                    {product && product.currency && product.price ? (
+                    {!loading && product && product.currency && product.price ? (
                         <span className="text-lg">
                             {product.currency}
                             {` `}
@@ -35,7 +35,7 @@ function ProductCard({ product, loading }: Props) {
                         </span>
                     ) : null}
                     {loading ? <SkeletonRectangle height={40} width={120} /> : null}
-                    {product ? (
+                    {!loading && product ? (
                         <Button variant="outlined" color="primary">
                             Learn More
                         </Button>
