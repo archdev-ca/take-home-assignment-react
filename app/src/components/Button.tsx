@@ -2,9 +2,11 @@ import React from 'react'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
+    classNames?: string
     color: 'primary' | 'secondary'
     fullWidth?: boolean
     variant: 'contained' | 'outlined'
+    onClick?: () => void
 }
 
 const disabledColorClassMap = {
@@ -25,19 +27,20 @@ const classMap = {
     },
 }
 
-const Button = ({ color, variant = 'contained', fullWidth, children, ...props }: Props) => {
-    let classNames = ''
+const Button = ({ onClick, classNames, color, variant = 'contained', fullWidth, children, ...props }: Props) => {
+    let classes = ''
     let bgClasses = ''
     bgClasses += classMap[variant][color] ? classMap[variant][color] : 'bg-primary-main'
     if (props.disabled) {
         bgClasses += disabledColorClassMap[color] ? disabledColorClassMap[color] : ''
     }
-    classNames += fullWidth ? ' w-full block' : ''
+    classes += fullWidth ? ' w-full block' : ''
     return (
         <>
             <button
                 {...props}
-                className={`${classNames} ${bgClasses} flex justify-center rounded-sm text-primary-contrast leading-6 py-2 px-6 transition-all duration-300 ease-in-out`}
+                className={`${classes} ${classNames} ${bgClasses} flex justify-center rounded-sm text-primary-contrast leading-6 py-2 px-6 transition-all duration-300 ease-in-out`}
+                onClick={onClick}
             >
                 {children}
             </button>
