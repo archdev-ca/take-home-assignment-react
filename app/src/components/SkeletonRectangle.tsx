@@ -1,6 +1,6 @@
 type Props = {
-    height?: number
-    width?: number
+    height?: number | string
+    width?: number | string
 }
 
 const SkeletonRectangle = ({ height, width }: Props) => {
