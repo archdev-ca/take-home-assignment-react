@@ -7,6 +7,7 @@ import { ProductInterface } from '../interfaces/common'
 import Container from '../components/Container'
 import GridItem from '../components/GridItem'
 import GridContainer from '../components/GridContainer'
+import CardContent from '../components/CardContent'
 
 function Products() {
     const { accessToken, refreshToken } = useAuth()
@@ -44,8 +45,10 @@ function Products() {
                                       key={i}
                                   >
                                       <Card>
-                                          {product.title}
-                                          {product.description}
+                                          <CardContent>
+                                              {product.title}
+                                              {product.description}
+                                          </CardContent>
                                       </Card>
                                   </GridItem>
                               )

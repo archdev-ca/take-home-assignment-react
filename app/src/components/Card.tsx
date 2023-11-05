@@ -1,8 +1,9 @@
 type Props = {
     children: React.ReactNode
+    classNames?: string
 }
-function Card({ children }: Props) {
-    return <div className="bg-white p-14 rounded-large shadow-card">{children}</div>
+function Card({ children, classNames }: Props) {
+    return <div className={`bg-white rounded-large shadow-card ${classNames}`}>{children}</div>
 }
 
 export default Card
