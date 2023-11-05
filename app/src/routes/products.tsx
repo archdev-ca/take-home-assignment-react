@@ -4,6 +4,9 @@ import MainNav from '../components/MainNav'
 import useAuth from '../hooks/useAuth'
 import useProductList from '../hooks/useProductList'
 import { ProductInterface } from '../interfaces/common'
+import Container from '../components/Container'
+import GridItem from '../components/GridItem'
+import GridContainer from '../components/GridContainer'
 
 function Products() {
     const { accessToken, refreshToken } = useAuth()
@@ -26,20 +29,24 @@ function Products() {
             }}
         >
             <MainNav />
-            <div>
+            <Container>
                 <h2>Products</h2>
 
-                {data && data.products && data.products.length
-                    ? data.products.map((product: ProductInterface) => {
-                          return (
-                              <Card>
-                                  {product.title}
-                                  {product.description}
-                              </Card>
-                          )
-                      })
-                    : null}
-            </div>
+                <GridContainer>
+                    {data && data.products && data.products.length
+                        ? data.products.map((product: ProductInterface, i) => {
+                              return (
+                                  <GridItem width="6" key={i}>
+                                      <Card>
+                                          {product.title}
+                                          {product.description}
+                                      </Card>
+                                  </GridItem>
+                              )
+                          })
+                        : null}
+                </GridContainer>
+            </Container>
         </div>
     )
 }
