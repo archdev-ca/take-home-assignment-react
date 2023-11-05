@@ -5,13 +5,19 @@ import { AppContext } from '../context/AppContext'
 
 function MainNav() {
     const navigate = useNavigate()
-    const { accessToken, refreshToken } = useContext(AppContext)
+    const { setAccessToken, accessToken, setRefreshToken, refreshToken } = useContext(AppContext)
 
     const handleSignin = () => {
         navigate('/login')
     }
 
-    const handleLogout = () => {}
+    const handleLogout = () => {
+        setAccessToken('')
+        setRefreshToken('')
+        sessionStorage.removeItem('at')
+        sessionStorage.removeItem('rt')
+        navigate('/')
+    }
 
     return (
         <nav className="border-b border-gray-300 py-4 px-8 flex flex-row">
