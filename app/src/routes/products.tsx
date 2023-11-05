@@ -36,7 +36,13 @@ function Products() {
                     {data && data.products && data.products.length
                         ? data.products.map((product: ProductInterface, i) => {
                               return (
-                                  <GridItem width="6" key={i}>
+                                  <GridItem
+                                      width={{
+                                          sm: '12',
+                                          md: '3',
+                                      }}
+                                      key={i}
+                                  >
                                       <Card>
                                           {product.title}
                                           {product.description}
