@@ -2,27 +2,41 @@ import React from 'react'
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
-    variant: 'primary' | 'secondary'
+    color: 'primary' | 'secondary'
     fullWidth?: boolean
+    variant: 'contained' | 'outlined'
 }
 
-const variantClassMap = {
+const colorClassMap = {
     primary:
         ' bg-primary-main hover:bg-primary-dark active:bg-primary-darker outline outline-offset-0 outline-0 outline-primary-lighter focus:outline-4',
     secondary: '',
 }
 
-const disabledVariantClassMap = {
+const disabledColorClassMap = {
     primary: ' disabled:bg-primary-disabled',
     secondary: '',
 }
 
-const Button = ({ variant, fullWidth, children, ...props }: Props) => {
+const variantClassMap = {}
+
+const classMap = {
+    contained: {
+        primary: '',
+        secondary: '',
+    },
+    outlined: {
+        primary: '',
+        secondary: '',
+    },
+}
+
+const Button = ({ color: variant, fullWidth, children, ...props }: Props) => {
     let classNames = ''
     let bgClasses = ''
-    bgClasses += variantClassMap[variant] ? variantClassMap[variant] : 'bg-primary-main'
+    bgClasses += colorClassMap[variant] ? colorClassMap[variant] : 'bg-primary-main'
     if (props.disabled) {
-        bgClasses += disabledVariantClassMap[variant] ? disabledVariantClassMap[variant] : ''
+        bgClasses += disabledColorClassMap[variant] ? disabledColorClassMap[variant] : ''
     }
     classNames += fullWidth ? ' w-full block' : ''
     return (
