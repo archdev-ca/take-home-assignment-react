@@ -5,7 +5,6 @@ import { AppContext } from '../context/AppContext'
 
 function useProductList() {
     const { accessToken } = useContext(AppContext)
-    console.log({ accessToken })
     const [getProductList, { loading, error, data }] = useLazyQuery(PRODUCT_LIST, {
         context: {
             headers: {

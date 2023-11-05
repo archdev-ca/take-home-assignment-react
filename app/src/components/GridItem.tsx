@@ -39,7 +39,6 @@ function GridItem({ children, width }: Props) {
             widthClass += ` xl:${widthClasses[width['xl']]}`
         }
     }
-    console.log({ widthClass, width })
     return <div className={`${widthClass} basis-6/12 flex-1`}>{children}</div>
 }
 
