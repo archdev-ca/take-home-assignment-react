@@ -40,7 +40,7 @@ function Login() {
                             <TextField type="password" name="password" value={password} setValue={setPassword} />
                         </div>
 
-                        <Button disabled={loading} fullWidth variant="primary">
+                        <Button disabled={loading} fullWidth color="primary">
                             Sign in
                         </Button>
                     </form>

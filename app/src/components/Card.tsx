@@ -3,7 +3,7 @@ type Props = {
     classNames?: string
 }
 function Card({ children, classNames }: Props) {
-    return <div className={`bg-white rounded-large shadow-card ${classNames}`}>{children}</div>
+    return <div className={`bg-white rounded-large shadow-card overflow-hidden ${classNames}`}>{children}</div>
 }
 
 export default Card

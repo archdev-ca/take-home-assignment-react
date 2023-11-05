@@ -40,7 +40,7 @@ function GridItem({ children, width }: Props) {
         }
     }
     console.log({ widthClass, width })
-    return <div className={`${widthClass} flex-1`}>{children}</div>
+    return <div className={`${widthClass} basis-6/12 flex-1`}>{children}</div>
 }
 
 export default GridItem
