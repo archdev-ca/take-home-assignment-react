@@ -53,9 +53,8 @@ function Products() {
                                   <GridItem
                                       width={{
                                           xs: '12',
-                                          sm: '6',
+                                          md: '6',
                                           xl: '3',
-                                          '2xl': '3',
                                       }}
                                       key={i}
                                   >

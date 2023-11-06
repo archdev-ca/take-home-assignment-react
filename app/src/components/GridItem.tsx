@@ -26,6 +26,9 @@ function GridItem({ children, width }: Props) {
     if (width && typeof width === 'string') {
         widthClass = widthClasses[width]
     } else if (width && typeof width !== 'string') {
+        if (width['xs']) {
+            widthClass += ` ${widthClasses[width['xs']]}`
+        }
         if (width['sm']) {
             widthClass += ` sm:${widthClasses[width['sm']]}`
         }
@@ -38,8 +41,11 @@ function GridItem({ children, width }: Props) {
         if (width['xl']) {
             widthClass += ` xl:${widthClasses[width['xl']]}`
         }
+        if (width['2xl']) {
+            widthClass += ` 2xl:${widthClasses[width['2xl']]}`
+        }
     }
-    return <div className={`${widthClass} basis-6/12 flex-1`}>{children}</div>
+    return <div className={`${widthClass} flex-1`}>{children}</div>
 }
 
 export default GridItem

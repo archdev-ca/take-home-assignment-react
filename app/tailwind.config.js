@@ -1,6 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: ['./index.html', './src/**/*.{js,ts,tsx,jsx}'],
+    safelist: [
+        {
+            pattern: /basis-/,
+            variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+        },
+    ],
     theme: {
         extend: {
             borderRadius: {
