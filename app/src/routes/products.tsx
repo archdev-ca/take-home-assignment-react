@@ -30,7 +30,19 @@ function Products() {
         >
             <MainNav />
             <Container>
-                <h2>Products</h2>
+                <Breadcrumbs
+                    items={[
+                        {
+                            text: 'Home',
+                            link: '/',
+                        },
+                        {
+                            text: 'Products',
+                            link: '/products',
+                            active: true,
+                        },
+                    ]}
+                />
 
                 <GridContainer>
                     {data && data.products && data.products.length
