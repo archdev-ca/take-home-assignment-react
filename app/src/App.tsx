@@ -25,7 +25,6 @@ const errorLink = onError(({ graphQLErrors, operation, forward }) => {
             switch (err.extensions.code) {
                 case 'SESSION_EXPIRED':
                     if (operation?.operationName === 'RefreshTokenMutation') return
-                    renewToken()
 
                     return new Observable(observer => {
                         ;(async () => {
