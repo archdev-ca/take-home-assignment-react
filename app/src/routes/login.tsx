@@ -1,3 +1,4 @@
+import { useContext, useEffect } from 'react'
 import Alert from '../components/Alert'
 import Button from '../components/Button'
 import Card from '../components/Card'
@@ -5,9 +6,20 @@ import CardContent from '../components/CardContent'
 import Label from '../components/Label'
 import TextField from '../components/TextField'
 import useLogin from '../hooks/useLogin'
+import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
+    const navigate = useNavigate()
     const { email, setEmail, password, setPassword, handleSubmit, loading, error } = useLogin()
+    const { accessToken, refreshToken } = useContext(AppContext)
+
+    // Redirect user if already logged in
+    useEffect(() => {
+        if (accessToken && refreshToken) {
+            navigate('/products')
+        }
+    }, [accessToken, refreshToken, navigate])
 
     return (
         <div className="pt-16 mx-auto" style={{ width: '466px' }}>
@@ -40,7 +52,7 @@ function Login() {
                             <TextField type="password" name="password" value={password} setValue={setPassword} />
                         </div>
 
-                        <Button disabled={loading} fullWidth color="primary">
+                        <Button variant="contained" disabled={loading} fullWidth color="primary">
                             Sign in
                         </Button>
                     </form>
