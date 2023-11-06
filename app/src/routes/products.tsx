@@ -7,7 +7,7 @@ import GridItem from '../components/GridItem'
 import GridContainer from '../components/GridContainer'
 import ProductCard from '../components/ProductCard'
 import { AppContext } from '../context/AppContext'
-import Breadcrumbs from '../components/Breadcrumbs'
+import PageHeading from '../components/PageHeading'
 
 function Products() {
     const { accessToken, refreshToken } = useContext(AppContext)
@@ -31,8 +31,9 @@ function Products() {
         >
             <MainNav />
             <Container>
-                <Breadcrumbs
-                    items={[
+                <PageHeading
+                    title="Products"
+                    breadcrumbItems={[
                         {
                             text: 'Home',
                             link: '/',
