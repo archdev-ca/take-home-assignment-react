@@ -4,13 +4,13 @@ import { AppContext } from '../context/AppContext'
 
 const ProtectedRoute = () => {
     const navigate = useNavigate()
-    const { accessToken, refreshToken } = useContext(AppContext)
+    const { authenticated } = useContext(AppContext)
     useEffect(() => {
-        if (!accessToken || !refreshToken) {
+        if (!authenticated) {
             navigate('/')
         }
-    }, [accessToken, refreshToken, navigate])
-    return <>{accessToken && refreshToken ? <Outlet /> : null}</>
+    }, [authenticated, navigate])
+    return <>{authenticated ? <Outlet /> : null}</>
 }
 
 export default ProtectedRoute

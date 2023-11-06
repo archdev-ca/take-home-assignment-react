@@ -15,10 +15,8 @@ export interface RefreshSessionResponseInterface {
 }
 
 export interface AppContextInterface {
-    accessToken: string
-    refreshToken: string
-    setAccessToken: Dispatch<SetStateAction<string>>
-    setRefreshToken: Dispatch<SetStateAction<string>>
+    setAuthenticated: Dispatch<SetStateAction<boolean>>
+    authenticated: boolean
 }
 
 export interface ProductInterface {

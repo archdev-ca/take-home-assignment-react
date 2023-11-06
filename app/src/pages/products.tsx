@@ -1,24 +1,22 @@
-import { useContext, useEffect } from 'react'
+import { useEffect } from 'react'
 import useProductList from '../hooks/useProductList'
 import { ProductInterface } from '../interfaces/common'
 import GridItem from '../components/GridItem'
 import GridContainer from '../components/GridContainer'
 import ProductCard from '../components/ProductCard'
-import { AppContext } from '../context/AppContext'
 import PageHeading from '../components/PageHeading'
 import Alert from '../components/Alert'
 import DefaultMessage from '../components/DefaultMessage'
 import DefaultLayout from '../layouts/DefaultLayout'
 
 function Products() {
-    const { accessToken, refreshToken } = useContext(AppContext)
     const { getProductList, data, loading, error } = useProductList()
 
     useEffect(() => {
-        if (accessToken && refreshToken && !data) {
+        if (localStorage.getItem('at') && localStorage.getItem('rt') && !data) {
             getProductList()
         }
-    }, [accessToken, refreshToken, data, getProductList])
+    }, [data, getProductList])
 
     return (
         <DefaultLayout>

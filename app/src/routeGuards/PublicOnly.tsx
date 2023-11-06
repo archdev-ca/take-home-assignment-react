@@ -8,15 +8,15 @@ type Props = {
 
 function PublicOnly({ redirect }: Props) {
     const navigate = useNavigate()
-    const { accessToken, refreshToken } = useContext(AppContext)
+    const { authenticated } = useContext(AppContext)
 
     useEffect(() => {
-        if (accessToken && refreshToken && redirect) {
+        if (authenticated && redirect) {
             navigate(redirect)
         }
-    }, [accessToken, refreshToken, navigate, redirect])
+    }, [authenticated, navigate, redirect])
 
-    return <>{accessToken && refreshToken ? null : <Outlet />}</>
+    return <>{authenticated ? null : <Outlet />}</>
 }
 
 export default PublicOnly

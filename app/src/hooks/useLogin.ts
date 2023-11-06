@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 function useLogin() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const { setAccessToken, setRefreshToken } = useContext(AppContext)
+    const { setAuthenticated } = useContext(AppContext)
     const navigate = useNavigate()
 
     const onLoginComplete = (data: LoginResponseInterface) => {
@@ -16,8 +16,7 @@ function useLogin() {
             authenticate: { accessToken, refreshToken },
         } = data
         if (accessToken && refreshToken) {
-            setAccessToken(accessToken)
-            setRefreshToken(refreshToken)
+            setAuthenticated(true)
             localStorage.setItem('at', accessToken)
             localStorage.setItem('rt', refreshToken)
             navigate('/products')

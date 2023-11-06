@@ -6,24 +6,19 @@ type Props = {
 }
 
 export const AppContext = createContext<AppContextInterface>({
-    refreshToken: '',
-    accessToken: '',
-    setAccessToken: () => {},
-    setRefreshToken: () => {},
+    authenticated: false,
+    setAuthenticated: () => {},
 })
 
 export const AppContextProvider = ({ children }: Props) => {
     const cachedAccessToken = localStorage.getItem('at')
     const cachedRefreshToken = localStorage.getItem('rt')
-    const [accessToken, setAccessToken] = useState(cachedAccessToken || '')
-    const [refreshToken, setRefreshToken] = useState(cachedRefreshToken || '')
+    const [authenticated, setAuthenticated] = useState(cachedAccessToken && cachedRefreshToken ? true : false)
     return (
         <AppContext.Provider
             value={{
-                accessToken,
-                setAccessToken,
-                refreshToken,
-                setRefreshToken,
+                authenticated,
+                setAuthenticated,
             }}
         >
             {children}

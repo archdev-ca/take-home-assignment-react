@@ -1,4 +1,3 @@
-import { useContext, useEffect } from 'react'
 import Alert from '../components/Alert'
 import Button from '../components/Button'
 import Card from '../components/Card'
@@ -6,21 +5,11 @@ import CardContent from '../components/CardContent'
 import Label from '../components/Label'
 import TextField from '../components/TextField'
 import useLogin from '../hooks/useLogin'
-import { AppContext } from '../context/AppContext'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Container from '../components/Container'
 
 function Login() {
-    const navigate = useNavigate()
     const { email, setEmail, password, setPassword, handleSubmit, loading, error } = useLogin()
-    const { accessToken, refreshToken } = useContext(AppContext)
-
-    // Redirect user if already logged in
-    useEffect(() => {
-        if (accessToken && refreshToken) {
-            navigate('/products')
-        }
-    }, [accessToken, refreshToken, navigate])
 
     return (
         <Container>
