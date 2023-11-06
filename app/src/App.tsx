@@ -10,6 +10,7 @@ import { REFRESH_TOKEN } from './gql/mutations/auth'
 import { GraphQLError } from 'graphql'
 import ProtectedRoute from './routeGuards/ProtectedRoutes'
 import PublicOnly from './routeGuards/PublicOnly'
+import NotFound from './pages/NotFound'
 
 const GRAPHQL_URL = 'http://localhost:8080/graphql'
 
@@ -95,6 +96,7 @@ function App() {
                 <Route element={<ProtectedRoute />}>
                     <Route path="/products" element={<Products />} />
                 </Route>
+                <Route index path="/*" element={<NotFound />} />
             </Routes>
         </ApolloProvider>
     )
