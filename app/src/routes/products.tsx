@@ -78,7 +78,7 @@ function Products() {
                                           }}
                                           key={i}
                                       >
-                                          <div className="p-3">
+                                          <div className="p-3 h-full">
                                               <ProductCard product={product} />
                                           </div>
                                       </GridItem>

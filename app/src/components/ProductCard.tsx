@@ -12,9 +12,9 @@ type Props = {
 
 function ProductCard({ product, loading }: Props) {
     return (
-        <Card>
+        <Card classNames="h-full">
             <div className="pb-[45%] bg-slate-100"></div>
-            <CardContent>
+            <CardContent classNames="flex-1">
                 <h3 className="font-bold text-lg mb-4">
                     {loading ? <SkeletonRectangle height={28} width="30%" /> : null}
                     {!loading && product && product.title ? product.title : ''}
