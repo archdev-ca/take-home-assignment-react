@@ -14,7 +14,9 @@ import { GraphQLError } from 'graphql'
 const GRAPHQL_URL = 'http://localhost:8080/graphql'
 
 const getOperationAuthHeader = (operation: string | undefined) => {
-    return operation !== 'RefreshTokenMutation' ? { authorization: `Bearer ${localStorage.getItem('at')}` } : {}
+    return operation && !['RefreshTokenMutation', 'LoginMutation'].includes(operation)
+        ? { authorization: `Bearer ${localStorage.getItem('at')}` }
+        : {}
 }
 
 const errorLink = onError(({ graphQLErrors, operation, forward }) => {
