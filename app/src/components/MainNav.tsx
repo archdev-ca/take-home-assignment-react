@@ -2,12 +2,14 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from './Button'
 import { useContext } from 'react'
 import { AppContext } from '../context/AppContext'
+import { useApolloClient } from '@apollo/client'
 
 function MainNav() {
+    const client = useApolloClient()
     const navigate = useNavigate()
     const { setAccessToken, accessToken, setRefreshToken, refreshToken } = useContext(AppContext)
 
-    const handleSignin = () => {
+    const handleClickSignin = () => {
         navigate('/login')
     }
 
@@ -16,6 +18,7 @@ function MainNav() {
         setRefreshToken('')
         localStorage.removeItem('at')
         localStorage.removeItem('rt')
+        client.clearStore()
         navigate('/')
     }
 
@@ -25,7 +28,7 @@ function MainNav() {
                 <img src="/images/logo.png" srcSet="/images/logo@2x.png 2x" alt="" width={143} height={24} />
             </Link>
             {!accessToken || !refreshToken ? (
-                <Button classNames="ml-auto" variant="contained" color="primary" onClick={handleSignin}>
+                <Button classNames="ml-auto" variant="contained" color="primary" onClick={handleClickSignin}>
                     Sign in
                 </Button>
             ) : null}
