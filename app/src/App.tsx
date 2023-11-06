@@ -27,6 +27,7 @@ const errorLink = onError(({ graphQLErrors, operation, forward }) => {
                     if (operation?.operationName === 'RefreshTokenMutation') return
 
                     return new Observable(observer => {
+                        // eslint-disable-next-line no-extra-semi
                         ;(async () => {
                             try {
                                 const { accessToken, refreshToken } = await renewToken()
