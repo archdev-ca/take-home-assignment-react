@@ -23,6 +23,7 @@ export default {
                     disabled: '#c9a8e3',
                 },
                 black: {
+                    light: '#555',
                     muted: '#858484',
                 },
             },
