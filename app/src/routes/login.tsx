@@ -7,7 +7,7 @@ import Label from '../components/Label'
 import TextField from '../components/TextField'
 import useLogin from '../hooks/useLogin'
 import { AppContext } from '../context/AppContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Container from '../components/Container'
 
 function Login() {
@@ -27,14 +27,16 @@ function Login() {
             <div className="pt-16 mx-auto" style={{ width: '466px' }}>
                 <Card>
                     <CardContent classNames="!p-14">
-                        <img
-                            src="/images/logo.png"
-                            srcSet="images/logo@2x.png 2x"
-                            alt=""
-                            width={143}
-                            height={24}
-                            className="mb-10"
-                        />
+                        <Link to="/">
+                            <img
+                                src="/images/logo.png"
+                                srcSet="images/logo@2x.png 2x"
+                                alt=""
+                                width={143}
+                                height={24}
+                                className="mb-10"
+                            />
+                        </Link>
                         <h2 className="mb-8 text-3xl leading-10 font-semibold">Sign in</h2>
 
                         {error ? (
