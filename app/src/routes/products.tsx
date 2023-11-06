@@ -1,15 +1,15 @@
-import { useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import MainNav from '../components/MainNav'
-import useAuth from '../hooks/useAuth'
 import useProductList from '../hooks/useProductList'
 import { ProductInterface } from '../interfaces/common'
 import Container from '../components/Container'
 import GridItem from '../components/GridItem'
 import GridContainer from '../components/GridContainer'
 import ProductCard from '../components/ProductCard'
+import { AppContext } from '../context/AppContext'
 
 function Products() {
-    const { accessToken, refreshToken } = useAuth()
+    const { accessToken, refreshToken } = useContext(AppContext)
     const { getProductList, loading, data } = useProductList()
 
     useEffect(() => {

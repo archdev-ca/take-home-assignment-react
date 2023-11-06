@@ -4,7 +4,6 @@ import Home from './routes'
 import Login from './routes/login'
 import Products from './routes/products'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-import useAuth from './hooks/useAuth'
 import { useContext, useEffect } from 'react'
 import { AppContext } from './context/AppContext'
 
@@ -25,7 +24,6 @@ const ProtectedRoute = () => {
 }
 
 function App() {
-    useAuth()
     return (
         <>
             <ApolloProvider client={client}>

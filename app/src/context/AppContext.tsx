@@ -13,8 +13,10 @@ export const AppContext = createContext<AppContextInterface>({
 })
 
 export const AppContextProvider = ({ children }: Props) => {
-    const [accessToken, setAccessToken] = useState('')
-    const [refreshToken, setRefreshToken] = useState('')
+    const cachedAccessToken = sessionStorage.getItem('at')
+    const cachedRefreshToken = sessionStorage.getItem('rt')
+    const [accessToken, setAccessToken] = useState(cachedAccessToken || '')
+    const [refreshToken, setRefreshToken] = useState(cachedRefreshToken || '')
     return (
         <AppContext.Provider
             value={{
