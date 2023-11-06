@@ -96,17 +96,15 @@ const ProtectedRoute = () => {
 
 function App() {
     return (
-        <>
-            <ApolloProvider client={client}>
-                <Routes>
-                    <Route index path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route element={<ProtectedRoute />}>
-                        <Route path="/products" element={<Products />} />
-                    </Route>
-                </Routes>
-            </ApolloProvider>
-        </>
+        <ApolloProvider client={client}>
+            <Routes>
+                <Route index path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/products" element={<Products />} />
+                </Route>
+            </Routes>
+        </ApolloProvider>
     )
 }
 
