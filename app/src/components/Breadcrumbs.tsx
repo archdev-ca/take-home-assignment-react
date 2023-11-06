@@ -8,7 +8,7 @@ type Props = {
 
 const Breadcrumbs = ({ items }: Props) => {
     return (
-        <div className="flex px-2 py-4">
+        <div className="flex px-3 py-4">
             {items && items.length
                 ? items.map((item: BreadcrumbItemInterface, i: number) => {
                       return (

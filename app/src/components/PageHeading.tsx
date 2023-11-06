@@ -11,7 +11,7 @@ const PageHeading = ({ title, breadcrumbItems }: Props) => {
         <>
             <Breadcrumbs items={breadcrumbItems} />
 
-            <h2 className="px-2 text-2xl font-bold mt-3 mb-6">{title}</h2>
+            <h2 className="px-3 text-2xl font-bold mt-3 mb-6">{title}</h2>
         </>
     )
 }

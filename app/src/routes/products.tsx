@@ -58,7 +58,7 @@ function Products() {
                                       }}
                                       key={i}
                                   >
-                                      <div className="p-2">
+                                      <div className="p-3">
                                           <ProductCard product={product} />
                                       </div>
                                   </GridItem>
@@ -70,12 +70,13 @@ function Products() {
                               return (
                                   <GridItem
                                       width={{
-                                          sm: '3',
-                                          md: '3',
+                                          xs: '12',
+                                          md: '6',
+                                          xl: '3',
                                       }}
                                       key={i}
                                   >
-                                      <div className="p-2">
+                                      <div className="p-3">
                                           <ProductCard loading />
                                       </div>
                                   </GridItem>
