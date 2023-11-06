@@ -14,8 +14,8 @@ function MainNav() {
     const handleLogout = () => {
         setAccessToken('')
         setRefreshToken('')
-        sessionStorage.removeItem('at')
-        sessionStorage.removeItem('rt')
+        localStorage.removeItem('at')
+        localStorage.removeItem('rt')
         navigate('/')
     }
 

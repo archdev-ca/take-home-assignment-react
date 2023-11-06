@@ -13,8 +13,8 @@ function useRenewToken() {
         if (accessToken && refreshToken) {
             setAccessToken(accessToken)
             setRefreshToken(refreshToken)
-            sessionStorage.setItem('at', accessToken)
-            sessionStorage.setItem('rt', refreshToken)
+            localStorage.setItem('at', accessToken)
+            localStorage.setItem('rt', refreshToken)
         }
     }
     const [renewToken, { loading, error, data }] = useMutation(REFRESH_TOKEN, { onCompleted: onRefreshComplete })

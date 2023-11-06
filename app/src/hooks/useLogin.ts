@@ -18,8 +18,8 @@ function useLogin() {
         if (accessToken && refreshToken) {
             setAccessToken(accessToken)
             setRefreshToken(refreshToken)
-            sessionStorage.setItem('at', accessToken)
-            sessionStorage.setItem('rt', refreshToken)
+            localStorage.setItem('at', accessToken)
+            localStorage.setItem('rt', refreshToken)
             navigate('/products')
         }
     }
