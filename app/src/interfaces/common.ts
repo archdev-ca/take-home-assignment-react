@@ -7,6 +7,13 @@ export interface LoginResponseInterface {
     }
 }
 
+export interface RefreshSessionResponseInterface {
+    refreshSession: {
+        accessToken: string
+        refreshToken: string
+    }
+}
+
 export interface AppContextInterface {
     accessToken: string
     refreshToken: string
@@ -36,4 +43,14 @@ export interface BreadcrumbItemInterface {
     text: string
     link: string
     active?: boolean
+}
+
+export interface GQLServerErrorInterface {
+    errors: [
+        {
+            extensions: {
+                code: string
+            }
+        }
+    ]
 }

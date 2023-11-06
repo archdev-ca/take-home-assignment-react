@@ -19,7 +19,7 @@ function Products() {
         if (accessToken && refreshToken && !data) {
             getProductList()
         }
-    }, [accessToken, refreshToken, data])
+    }, [accessToken, refreshToken, data, getProductList])
 
     return (
         <div

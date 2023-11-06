@@ -1,6 +1,6 @@
 import { useMutation } from '@apollo/client'
 import { useContext, useState } from 'react'
-import { LOGIN } from '../gql/mutations/login'
+import { LOGIN } from '../gql/mutations/auth'
 import { LoginResponseInterface } from '../interfaces/common'
 import { AppContext } from '../context/AppContext'
 import { useNavigate } from 'react-router-dom'

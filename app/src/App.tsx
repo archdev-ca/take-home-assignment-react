@@ -7,8 +7,10 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 import { useContext, useEffect } from 'react'
 import { AppContext } from './context/AppContext'
 
+const GRAPHQL_URL = 'http://localhost:8080/graphql'
+
 const client = new ApolloClient({
-    uri: 'http://localhost:8080/graphql',
+    uri: GRAPHQL_URL,
     cache: new InMemoryCache(),
 })
 
@@ -19,7 +21,7 @@ const ProtectedRoute = () => {
         if (!accessToken || !refreshToken) {
             navigate('/')
         }
-    }, [accessToken, refreshToken])
+    }, [accessToken, refreshToken, navigate])
     return <Outlet />
 }
 
