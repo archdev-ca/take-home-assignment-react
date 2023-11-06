@@ -91,7 +91,7 @@ const ProtectedRoute = () => {
             navigate('/')
         }
     }, [accessToken, refreshToken, navigate])
-    return <Outlet />
+    return <>{accessToken && refreshToken ? <Outlet /> : null}</>
 }
 
 function App() {
