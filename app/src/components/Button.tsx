@@ -22,7 +22,7 @@ const classMap = {
     },
     outlined: {
         primary:
-            ' ring ring-2 ring-inset ring-primary-main hover:ring-primary-main hover:bg-primary-main active:ring-primary-main hover:text-white active:text-white text-primary-main outline outline-offset-0 outline-0 outline-primary-lighter focus:outline-4',
+            ' ring ring-2 ring-inset ring-primary-main hover:ring-primary-main hover:bg-primary-main active:bg-primary-main active:ring-primary-main hover:text-white active:text-white text-primary-main outline outline-offset-0 outline-0 outline-primary-lighter focus:outline-4',
         secondary: '',
     },
 }
