@@ -7,16 +7,17 @@ import GridItem from '../components/GridItem'
 import GridContainer from '../components/GridContainer'
 import ProductCard from '../components/ProductCard'
 import { AppContext } from '../context/AppContext'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 function Products() {
     const { accessToken, refreshToken } = useContext(AppContext)
     const { getProductList, loading, data } = useProductList()
 
     useEffect(() => {
-        if (accessToken && refreshToken) {
+        if (accessToken && refreshToken && !data) {
             getProductList()
         }
-    }, [accessToken, refreshToken])
+    }, [accessToken, refreshToken, data])
 
     return (
         <div
@@ -50,8 +51,10 @@ function Products() {
                               return (
                                   <GridItem
                                       width={{
-                                          sm: '3',
-                                          md: '3',
+                                          xs: '12',
+                                          sm: '6',
+                                          xl: '3',
+                                          '2xl': '3',
                                       }}
                                       key={i}
                                   >
