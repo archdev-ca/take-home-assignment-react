@@ -1,15 +1,15 @@
-import { Routes, Route, Outlet, useNavigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import './styles/global.css'
 import Home from './pages'
 import Login from './pages/login'
 import Products from './pages/products'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, from, Observable } from '@apollo/client'
-import { useContext, useEffect } from 'react'
-import { AppContext } from './context/AppContext'
 import { onError } from '@apollo/client/link/error'
 import { setContext } from '@apollo/client/link/context'
 import { REFRESH_TOKEN } from './gql/mutations/auth'
 import { GraphQLError } from 'graphql'
+import ProtectedRoute from './routeGuards/ProtectedRoutes'
+import PublicOnly from './routeGuards/PublicOnly'
 
 const GRAPHQL_URL = 'http://localhost:8080/graphql'
 
@@ -83,23 +83,14 @@ const renewToken = async () => {
     return response.data.refreshSession
 }
 
-const ProtectedRoute = () => {
-    const navigate = useNavigate()
-    const { accessToken, refreshToken } = useContext(AppContext)
-    useEffect(() => {
-        if (!accessToken || !refreshToken) {
-            navigate('/')
-        }
-    }, [accessToken, refreshToken, navigate])
-    return <>{accessToken && refreshToken ? <Outlet /> : null}</>
-}
-
 function App() {
     return (
         <ApolloProvider client={client}>
             <Routes>
                 <Route index path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
+                <Route element={<PublicOnly redirect="/products" />}>
+                    <Route path="/login" element={<Login />} />
+                </Route>
                 <Route element={<ProtectedRoute />}>
                     <Route path="/products" element={<Products />} />
                 </Route>
